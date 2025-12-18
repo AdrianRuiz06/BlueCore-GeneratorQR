@@ -49,12 +49,12 @@ export default function QRPreview({ state }) {
     }
 
     return (
-        <div className="sticky top-24 space-y-6">
-            <div className="bg-white rounded-2xl p-8 shadow-2xl flex flex-col items-center justify-center space-y-4 relative overflow-hidden group">
+        <div className="lg:sticky lg:top-24 space-y-6">
+            <div className="bg-white rounded-2xl p-4 md:p-8 shadow-2xl flex flex-col items-center justify-center space-y-4 relative overflow-hidden group mx-auto max-w-sm md:max-w-full">
                 <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
 
-                <div ref={qrWrapperRef} className="relative z-10 p-4 bg-white rounded-xl shadow-sm">
-                    <canvas ref={canvasRef} className="max-w-full h-auto rounded-lg" />
+                <div ref={qrWrapperRef} className="relative z-10 p-2 md:p-4 bg-white rounded-xl shadow-sm max-w-full">
+                    <canvas ref={canvasRef} className="max-w-full h-auto rounded-lg block" style={{ maxWidth: '300px' }} />
                 </div>
 
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">

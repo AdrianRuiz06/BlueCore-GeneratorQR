@@ -37,7 +37,7 @@ export default function Home() {
                 </div>
 
                 {/* Right: Preview */}
-                <div className="lg:col-span-5 sticky top-24">
+                <div className="lg:col-span-5">
                     <QRPreview state={qrState} />
                 </div>
             </div>
