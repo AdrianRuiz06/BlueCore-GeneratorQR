@@ -51,13 +51,14 @@ export default function QRPreview({ state }) {
     return (
         <div className="lg:sticky lg:top-24 space-y-4">
             {/* Main Card - Fit to content */}
-            <div className="bg-white rounded-xl p-3 shadow-2xl w-fit mx-auto relative overflow-hidden group">
-                {/* Decorative Grid - Absolute */}
-                <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
+            {/* Main Card - Strict Fit */}
+            <div className="bg-white rounded-xl p-2 shadow-2xl w-fit mx-auto relative overflow-hidden group">
+                {/* Decorative Grid - Hidden on mobile */}
+                <div className="hidden md:block absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
 
-                {/* QR Wrapper for Download */}
+                {/* QR Wrapper */}
                 <div ref={qrWrapperRef} className="relative z-10 bg-white rounded-lg p-1">
-                    <canvas ref={canvasRef} className="block object-contain" style={{ width: '250px', height: '250px', maxWidth: '100%' }} />
+                    <canvas ref={canvasRef} className="block object-contain" style={{ width: '220px', height: 'auto', maxWidth: '100%', aspectRatio: '1/1' }} />
                 </div>
             </div>
 
