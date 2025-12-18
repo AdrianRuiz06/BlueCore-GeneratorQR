@@ -15,18 +15,18 @@ export default function InputPanel({ state }) {
 
     return (
         <div className="glass-panel rounded-2xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-blue-900/10">
-            <div className="flex overflow-x-auto p-2 bg-slate-900/30 border-b border-slate-700/50 gap-2 no-scrollbar">
+            <div className="grid grid-cols-3 sm:flex sm:overflow-x-auto p-2 bg-slate-900/30 border-b border-slate-700/50 gap-2 no-scrollbar">
                 {TABS.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setType(tab.id)}
-                        className={`flex items-center gap-2 px-3 py-2 md:px-4 md:py-3 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 whitespace-nowrap
+                        className={`flex flex-col sm:flex-row items-center justify-center gap-2 px-2 py-2 sm:px-4 sm:py-3 rounded-xl text-[10px] sm:text-sm font-semibold transition-all duration-300
               ${type === tab.id
                                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg scale-105'
                                 : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
                     >
-                        <tab.icon className={`w-4 h-4 ${type === tab.id ? 'animate-pulse' : ''}`} />
-                        {tab.label}
+                        <tab.icon className={`w-4 h-4 sm:w-4 sm:h-4 ${type === tab.id ? 'animate-pulse' : ''}`} />
+                        <span>{tab.label}</span>
                     </button>
                 ))}
             </div>
