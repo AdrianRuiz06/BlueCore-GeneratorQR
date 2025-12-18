@@ -12,7 +12,7 @@ export default function StylePanel({ state }) {
     }
 
     return (
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl overflow-hidden shadow-xl p-6 space-y-6">
+        <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl overflow-hidden shadow-xl p-4 md:p-6 space-y-4 md:space-y-6">
             <div className="flex items-center gap-2 text-lg font-bold text-white mb-4">
                 <Palette className="w-5 h-5 text-purple-400" />
                 <span>Personalización</span>

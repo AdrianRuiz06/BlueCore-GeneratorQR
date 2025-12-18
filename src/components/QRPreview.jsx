@@ -13,7 +13,7 @@ export default function QRPreview({ state }) {
             try {
                 if (canvasRef.current) {
                     await QRCode.toCanvas(canvasRef.current, getQRData(), {
-                        width: 300,
+                        width: 1000, // High res for download
                         margin: options.margin,
                         color: options.color,
                         errorCorrectionLevel: options.errorCorrectionLevel
@@ -54,7 +54,7 @@ export default function QRPreview({ state }) {
                 <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
 
                 <div ref={qrWrapperRef} className="relative z-10 p-2 md:p-4 bg-white rounded-xl shadow-sm max-w-full">
-                    <canvas ref={canvasRef} className="max-w-full h-auto rounded-lg block" style={{ maxWidth: '300px' }} />
+                    <canvas ref={canvasRef} className="w-full h-auto rounded-lg block" />
                 </div>
 
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">

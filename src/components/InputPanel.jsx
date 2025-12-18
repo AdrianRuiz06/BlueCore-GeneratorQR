@@ -31,7 +31,7 @@ export default function InputPanel({ state }) {
                 ))}
             </div>
 
-            <div className="p-8">
+            <div className="p-4 md:p-8">
                 {type === 'wifi' ? (
                     <div className="space-y-5 animate-fade-in">
                         <div className="group">
