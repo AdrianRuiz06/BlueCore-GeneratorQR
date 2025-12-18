@@ -8,7 +8,7 @@ import Cookies from './pages/Cookies'
 
 function App() {
     return (
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
             <Helmet>
                 <title>BlueCore GeneratorQR</title>
                 <meta name="theme-color" content="#0f172a" />
