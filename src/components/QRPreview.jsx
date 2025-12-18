@@ -49,16 +49,15 @@ export default function QRPreview({ state }) {
     }
 
     return (
-        <div className="lg:sticky lg:top-24 space-y-6">
-            <div className="bg-white rounded-2xl p-4 md:p-8 shadow-2xl flex flex-col items-center justify-center space-y-4 relative overflow-hidden group mx-auto max-w-sm md:max-w-full">
+        <div className="lg:sticky lg:top-24 space-y-4">
+            {/* Main Card - Fit to content */}
+            <div className="bg-white rounded-xl p-3 shadow-2xl w-fit mx-auto relative overflow-hidden group">
+                {/* Decorative Grid - Absolute */}
                 <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
 
-                <div ref={qrWrapperRef} className="relative z-10 p-2 md:p-4 bg-white rounded-xl shadow-sm w-full flex justify-center items-center">
-                    <canvas ref={canvasRef} className="rounded-lg block object-contain mx-auto" style={{ width: '100%', maxWidth: '200px', height: 'auto' }} />
-                </div>
-
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="bg-slate-800 text-white text-xs py-1 px-2 rounded-full">Preview</span>
+                {/* QR Wrapper for Download */}
+                <div ref={qrWrapperRef} className="relative z-10 bg-white rounded-lg p-1">
+                    <canvas ref={canvasRef} className="block object-contain" style={{ width: '250px', height: '250px', maxWidth: '100%' }} />
                 </div>
             </div>
 
