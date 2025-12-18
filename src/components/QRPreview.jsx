@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import QRCode from 'qrcode'
-import { Download, Copy, RefreshCw, Smartphone } from 'lucide-react'
+import { Download, Copy } from 'lucide-react'
 import { toPng, toSvg } from 'html-to-image'
 
 export default function QRPreview({ state }) {
@@ -28,9 +28,6 @@ export default function QRPreview({ state }) {
 
     const handleDownload = async (format) => {
         if (!qrWrapperRef.current) return
-
-        // We download the canvas wrapper to ensure background styles are captured if we use advanced divs later, 
-        // but for now canvas direct download is also an option. Using toPng on wrapper allows for adding a frame later.
         try {
             const dataUrl = await toPng(qrWrapperRef.current, { cacheBust: true, backgroundColor: options.color.light })
             const link = document.createElement('a')
@@ -50,15 +47,16 @@ export default function QRPreview({ state }) {
 
     return (
         <div className="lg:sticky lg:top-24 space-y-4">
-            {/* Main Card - Fit to content */}
-            {/* Main Card - Strict Fit */}
-            <div className="bg-white rounded-xl p-2 shadow-2xl w-fit mx-auto relative overflow-hidden group">
-                {/* Decorative Grid - Hidden on mobile */}
-                <div className="hidden md:block absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
+            {/* Main Card - Shrink wrap perfectly */}
+            <div className="flex justify-center">
+                <div className="bg-white rounded-xl p-2 shadow-2xl inline-flex items-center justify-center relative overflow-hidden">
+                    {/* Decorative Grid - Hidden on mobile */}
+                    <div className="hidden md:block absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] pointer-events-none" />
 
-                {/* QR Wrapper */}
-                <div ref={qrWrapperRef} className="relative z-10 bg-white rounded-lg p-1">
-                    <canvas ref={canvasRef} className="block object-contain" style={{ width: '220px', height: 'auto', maxWidth: '100%', aspectRatio: '1/1' }} />
+                    {/* QR Wrapper - Zero extra space on mobile */}
+                    <div ref={qrWrapperRef} className="relative z-10 bg-white rounded p-0 leading-none flex">
+                        <canvas ref={canvasRef} className="block" style={{ width: '200px', height: 'auto', maxWidth: '100%', aspectRatio: '1/1' }} />
+                    </div>
                 </div>
             </div>
 
