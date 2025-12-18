@@ -20,7 +20,7 @@ export default function InputPanel({ state }) {
                     <button
                         key={tab.id}
                         onClick={() => setType(tab.id)}
-                        className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 whitespace-nowrap
+                        className={`flex items-center gap-2 px-3 py-2 md:px-4 md:py-3 rounded-xl text-xs md:text-sm font-semibold transition-all duration-300 whitespace-nowrap
               ${type === tab.id
                                 ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg scale-105'
                                 : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
